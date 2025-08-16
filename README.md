@@ -1,9 +1,39 @@
-#Установка 
-Скачайте .js файл
-```
+# FakeTimeZone - Изменение часового пояса в браузере
+
+## Описание
+FakeTimeZone - это пользовательский скрипт, который позволяет изменить ваш часовой пояс в браузере на любой другой. Это может быть полезно для тестирования веб-приложений или обхода географических ограничений.
+
+## Установка
+
+1. Установите расширение TamperMonkey для вашего браузера:
+   - [Для Firefox](https://addons.mozilla.org/ru/firefox/addon/tampermonkey/)
+   - [Для Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+
+2. Скачайте скрипт:
+```bash
 git clone https://github.com/binarnik2020/FakeTimeZone
 ```
 
-Скачайте в ваш браузер расширение TamperMonkey (https://addons.mozilla.org/ru/firefox/addon/tampermonkey/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+3. Откройте TamperMonkey и добавьте скачанный .js файл через "Утилиты" -> "Импорт"
 
-После этого добавьте скачанный скрипт в расширение, и включите его! И ура вы сменили свой часовой пояс
+4. Активируйте скрипт
+
+## Настройка часового пояса
+
+Откройте файл скрипта в текстовом редакторе и найдите строку:
+```javascript
+return { ...original, timeZone: 'Europe/Riga' }; // Меняем на нужный
+```
+
+Замените `'Europe/Riga'` на нужный вам часовой пояс, например:
+- `'America/New_York'`
+- `'Asia/Tokyo'`
+- `'Australia/Sydney'`
+
+Список всех доступных часовых поясов можно найти в [базе данных IANA](https://www.iana.org/time-zones).
+
+## Использование
+После активации скрипта все веб-сайты будут видеть выбранный вами часовой пояс вместо реального.
+
+## Примечание
+Этот скрипт изменяет только информацию о часовом поясе, передаваемую через JavaScript. Он не изменяет системное время или другие методы определения времени.
